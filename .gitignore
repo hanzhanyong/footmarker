@@ -1,0 +1,48 @@
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+.DS_Store
+._.DS_Store
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+*.log
+*.gz
+*.csv
+*.xls
+*.xlsx
+*.tmpf
+### NetBeans ###
+/nbproject/private/
+/build/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/.mvn/
+/logs/
+
+### react-admin-ui ###
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+# dependencies
+/node_modules
+# production
+/dist
+
+# misc
+.DS_Store
+npm-debug.log*
+

@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 45;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44015F4721C1D7DA00E9A389 /* auidemo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44015F4621C1D7DA00E9A389 /* auidemo.cpp */; };
+		4405928921B8369C003D6A80 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4405928821B8369C003D6A80 /* CoreFoundation.framework */; };
+		4430759021C21EB500822502 /* libwx_osx_cocoa.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */; };
+		4430759221C21F9400822502 /* libwx_osx_cocoa.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		405B1A9410EF209B00676938 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				4430759221C21F9400822502 /* libwx_osx_cocoa.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		405B1ACB10EF253300676938 /* minimal_cocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minimal_cocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		40735927137088070077DE1B /* Info_cocoa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info_cocoa.plist; sourceTree = "<group>"; };
+		44015F4621C1D7DA00E9A389 /* auidemo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = auidemo.cpp; sourceTree = "<group>"; };
+		4405928821B8369C003D6A80 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwx_osx_cocoa.dylib; path = ../3rdparty/wxWidgets/lib/libwx_osx_cocoa.dylib; sourceTree = "<group>"; };
+		444CCDF621B88DE500E58CE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dynamic/Images.xcassets; sourceTree = "<group>"; };
+		8D1107320486CEB800E47090 /* footMarkerManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footMarkerManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		405B1AC410EF253300676938 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072E0486CEB800E47090 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4430759021C21EB500822502 /* libwx_osx_cocoa.dylib in Frameworks */,
+				4405928921B8369C003D6A80 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		19C28FACFE9D520D11CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8D1107320486CEB800E47090 /* footMarkerManager.app */,
+				405B1ACB10EF253300676938 /* minimal_cocoa.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		29B97314FDCFA39411CA2CEA /* minimal_cocoa */ = {
+			isa = PBXGroup;
+			children = (
+				444CCDF621B88DE500E58CE9 /* Images.xcassets */,
+				40735927137088070077DE1B /* Info_cocoa.plist */,
+				405B1A9710EF227D00676938 /* src */,
+				19C28FACFE9D520D11CA2CBB /* Products */,
+				4423753B21B6E252001A4DA9 /* Frameworks */,
+			);
+			name = minimal_cocoa;
+			sourceTree = "<group>";
+		};
+		405B1A9710EF227D00676938 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				44015F4621C1D7DA00E9A389 /* auidemo.cpp */,
+			);
+			name = src;
+			sourceTree = "<group>";
+		};
+		4423753B21B6E252001A4DA9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */,
+				4405928821B8369C003D6A80 /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		405B1ABF10EF253300676938 /* static */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 405B1AC810EF253300676938 /* Build configuration list for PBXNativeTarget "static" */;
+			buildPhases = (
+				405B1AC210EF253300676938 /* Sources */,
+				405B1AC410EF253300676938 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = static;
+			productInstallPath = "$(HOME)/Applications";
+			productName = minimal_cocoa;
+			productReference = 405B1ACB10EF253300676938 /* minimal_cocoa.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8D1107260486CEB800E47090 /* dynamic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "dynamic" */;
+			buildPhases = (
+				8D11072C0486CEB800E47090 /* Sources */,
+				8D11072E0486CEB800E47090 /* Frameworks */,
+				405B1A9410EF209B00676938 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = dynamic;
+			productInstallPath = "$(HOME)/Applications";
+			productName = minimal_cocoa;
+			productReference = 8D1107320486CEB800E47090 /* footMarkerManager.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		29B97313FDCFA39411CA2CEA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+			};
+			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "footMarkerManager_cocoa" */;
+			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 29B97314FDCFA39411CA2CEA /* minimal_cocoa */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8D1107260486CEB800E47090 /* dynamic */,
+				405B1ABF10EF253300676938 /* static */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		405B1AC210EF253300676938 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D11072C0486CEB800E47090 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44015F4721C1D7DA00E9A389 /* auidemo.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		405B1AC910EF253300676938 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
+				PRODUCT_NAME = minimal_cocoa;
+			};
+			name = Debug;
+		};
+		405B1ACA10EF253300676938 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "$(OTHER_LDFLAGS)";
+				PRODUCT_NAME = minimal_cocoa;
+			};
+			name = Release;
+		};
+		C01FCF4B08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PFE_FILE_C_DIALECTS = "c++ objective-c++";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(WX_PREPROCESSOR_DEFINITIONS)";
+				HEADER_SEARCH_PATHS = (
+					../3rdparty/libtiff/include,
+					../3rdparty/regex/include,
+				);
+				LIBRARY_SEARCH_PATHS = ../3rdparty/wxWidgets/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wundef",
+					"-fno-strict-aliasing",
+					"-fno-common",
+					"-fvisibility=hidden",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmarker.managerapp;
+				PRODUCT_NAME = footMarkerManager;
+				USER_HEADER_SEARCH_PATHS = "../3rdparty/wxWidgets/include ../3rdparty/wxWidgets/include/cocoa";
+				WXPLATFORM = "__WXOSX_$(WXTOOLKITUPPER)__";
+				WXROOT = "$(PROJECT_DIR)/../3rdparty/wxWidgets";
+				WXTOOLKIT = cocoa;
+				WXTOOLKITUPPER = COCOA;
+				WX_PREPROCESSOR_DEFINITIONS = "WXBUILDING $(WXPLATFORM) __WX__ _FILE_OFFSET_BITS=64 _LARGE_FILES MACOS_CLASSIC __WXMAC_XCODE__=1 SCI_LEXER NO_CXX11_REGEX WX_PRECOMP=1 wxUSE_UNICODE_UTF8=0 wxUSE_UNICODE_WCHAR=1";
+			};
+			name = Debug;
+		};
+		C01FCF4C08A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					i386,
+					x86_64,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PFE_FILE_C_DIALECTS = "c++ objective-c++";
+				GCC_PREPROCESSOR_DEFINITIONS = "$(WX_PREPROCESSOR_DEFINITIONS)";
+				HEADER_SEARCH_PATHS = (
+					../3rdparty/libtiff/include,
+					../3rdparty/regex/include,
+				);
+				LIBRARY_SEARCH_PATHS = ../3rdparty/wxWidgets/lib;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wundef",
+					"-fno-strict-aliasing",
+					"-fno-common",
+					"-fvisibility=hidden",
+				);
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fmarker.managerapp;
+				PRODUCT_NAME = footMarkerManager;
+				USER_HEADER_SEARCH_PATHS = "../3rdparty/wxWidgets/include ../3rdparty/wxWidgets/include/cocoa";
+				WXPLATFORM = "__WXOSX_$(WXTOOLKITUPPER)__";
+				WXROOT = "$(PROJECT_DIR)/../3rdparty/wxWidgets";
+				WXTOOLKIT = cocoa;
+				WXTOOLKITUPPER = COCOA;
+				WX_PREPROCESSOR_DEFINITIONS = "WXBUILDING $(WXPLATFORM) __WX__ _FILE_OFFSET_BITS=64 _LARGE_FILES MACOS_CLASSIC __WXMAC_XCODE__=1 SCI_LEXER NO_CXX11_REGEX WX_PRECOMP=1 wxUSE_UNICODE_UTF8=0 wxUSE_UNICODE_WCHAR=1";
+			};
+			name = Release;
+		};
+		C01FCF4F08A954540054247B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info_cocoa.plist;
+				WXROOT = "$(PROJECT_DIR)/../3rdparty/wxWidgets";
+			};
+			name = Debug;
+		};
+		C01FCF5008A954540054247B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Info_cocoa.plist;
+				WXROOT = "$(PROJECT_DIR)/../3rdparty/wxWidgets";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		405B1AC810EF253300676938 /* Build configuration list for PBXNativeTarget "static" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				405B1AC910EF253300676938 /* Debug */,
+				405B1ACA10EF253300676938 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "dynamic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4B08A954540054247B /* Debug */,
+				C01FCF4C08A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C01FCF4E08A954540054247B /* Build configuration list for PBXProject "footMarkerManager_cocoa" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C01FCF4F08A954540054247B /* Debug */,
+				C01FCF5008A954540054247B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 29B97313FDCFA39411CA2CEA /* Project object */;
+}
