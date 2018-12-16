@@ -1,8 +1,12 @@
 ### ignore dir ###
+/x64/
+/.vs/
 /Debug/
 /Release/
+/footMarkerManager/.vs/
+/footMarkerManager/Debug/
+/footMarkerManager/Release/
 
 ### ignore file ###
-.DS_Store
 npm-debug.log*
 
