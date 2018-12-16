@@ -17,7 +17,7 @@
                BlueprintIdentifier = "8D1107260486CEB800E47090"
                BuildableName = "footMarkerManager.app"
                BlueprintName = "dynamic"
-               ReferencedContainer = "container:footMarkerManager_cocoa.xcodeproj">
+               ReferencedContainer = "container:footMarkerManager.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -35,7 +35,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "footMarkerManager.app"
             BlueprintName = "dynamic"
-            ReferencedContainer = "container:footMarkerManager_cocoa.xcodeproj">
+            ReferencedContainer = "container:footMarkerManager.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -58,7 +58,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "footMarkerManager.app"
             BlueprintName = "dynamic"
-            ReferencedContainer = "container:footMarkerManager_cocoa.xcodeproj">
+            ReferencedContainer = "container:footMarkerManager.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -76,7 +76,7 @@
             BlueprintIdentifier = "8D1107260486CEB800E47090"
             BuildableName = "footMarkerManager.app"
             BlueprintName = "dynamic"
-            ReferencedContainer = "container:footMarkerManager_cocoa.xcodeproj">
+            ReferencedContainer = "container:footMarkerManager.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>
