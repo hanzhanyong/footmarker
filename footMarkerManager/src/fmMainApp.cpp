@@ -17,14 +17,10 @@
 #endif
 
 #include "wx/app.h"
-#include "ui/MainFrame.h"
-
-using namespace footmarker::ui;
-
-
+#include "ui/fmMainFrame.h"
 
 // -- application --
-class MainApp : public wxApp
+class fmMainApp : public wxApp
 {
 public:
     bool OnInit() wxOVERRIDE;
@@ -34,18 +30,18 @@ public:
 // MainApp Implement
 // ==================================================================================
 //wxIMPLEMENT_APP(MainApp);
-wxDECLARE_APP(MainApp);
-wxIMPLEMENT_APP(MainApp);
+wxDECLARE_APP(fmMainApp);
+wxIMPLEMENT_APP(fmMainApp);
 
 // The `main program' equivalent
 // creating the windows and returning the main frame
-bool MainApp::OnInit()
+bool fmMainApp::OnInit()
 {
     if ( !wxApp::OnInit() )
         return false;
     
     // Create the main frame window
-    MainFrame* frame = new MainFrame(NULL,
+    fmMainFrame* frame = new fmMainFrame(NULL,
                                  wxID_ANY,
                                  wxT("footMaker Manager"),
                                  wxDefaultPosition,

@@ -13,6 +13,7 @@
 
 #include <wx/aui/aui.h>
 
+class fmLocales;
 class fmToolBarTop : public wxAuiToolBar
 {
 public:
@@ -25,11 +26,14 @@ public:
     virtual ~fmToolBarTop();
     
 private:
-    void InitItems();
+    void                            InitItems();
 
 private:
-    void OnDropDownToolbarItem(wxAuiToolBarEvent& evt);
+    void                            OnDropDownToolbarItem(wxAuiToolBarEvent& evt);
+    void                            OnMenuItem(wxCommandEvent& evt);
 
+private:
+    fmLocales                      *m_LocalLanguage;
     
     wxDECLARE_EVENT_TABLE();
 };

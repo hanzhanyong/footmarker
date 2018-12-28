@@ -1,11 +1,11 @@
 //
-//  MainFrame.cpp
+//  fmMainFrame.cpp
 //  dynamic
 //
 //  Created by hzy on 2018/12/18.
 //
 
-#include <ui/MainFrame.h>
+#include "fmMainFrame.h"
 
 #include "wxSizeReportCtrl.h"
 #include "SettingsPanel.h"
@@ -35,93 +35,89 @@
 #include "fmToolBarTop.h"
 
 
-using namespace footmarker;
-using namespace footmarker::ui;
-
-
-wxBEGIN_EVENT_TABLE(MainFrame, wxFrame)
-    EVT_ERASE_BACKGROUND(MainFrame::OnEraseBackground)
-    EVT_SIZE(MainFrame::OnSize)
-    EVT_MENU(MainFrame::ID_CreateTree, MainFrame::OnCreateTree)
-    EVT_MENU(MainFrame::ID_CreateGrid, MainFrame::OnCreateGrid)
-    EVT_MENU(MainFrame::ID_CreateText, MainFrame::OnCreateText)
-    EVT_MENU(MainFrame::ID_CreateHTML, MainFrame::OnCreateHTML)
-    EVT_MENU(MainFrame::ID_CreateSizeReport, MainFrame::OnCreateSizeReport)
-    EVT_MENU(MainFrame::ID_CreateNotebook, MainFrame::OnCreateNotebook)
-    EVT_MENU(MainFrame::ID_CreatePerspective, MainFrame::OnCreatePerspective)
-    EVT_MENU(MainFrame::ID_CopyPerspectiveCode, MainFrame::OnCopyPerspectiveCode)
-    EVT_MENU(ID_AllowFloating, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_TransparentHint, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_VenetianBlindsHint, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_RectangleHint, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_NoHint, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_HintFade, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_NoVenetianFade, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_TransparentDrag, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_LiveUpdate, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_AllowActivePane, MainFrame::OnManagerFlag)
-    EVT_MENU(ID_NotebookTabFixedWidth, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookNoCloseButton, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookCloseButton, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookCloseButtonAll, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookCloseButtonActive, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookAllowTabMove, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookAllowTabExternalMove, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookAllowTabSplit, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookScrollButtons, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookWindowList, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookArtGloss, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookArtSimple, MainFrame::OnNotebookFlag)
-    EVT_MENU(ID_NotebookAlignTop,     MainFrame::OnTabAlignment)
-    EVT_MENU(ID_NotebookAlignBottom,  MainFrame::OnTabAlignment)
-    EVT_MENU(ID_NoGradient, MainFrame::OnGradient)
-    EVT_MENU(ID_VerticalGradient, MainFrame::OnGradient)
-    EVT_MENU(ID_HorizontalGradient, MainFrame::OnGradient)
-    EVT_MENU(ID_AllowToolbarResizing, MainFrame::OnToolbarResizing)
-    EVT_MENU(ID_Settings, MainFrame::OnSettings)
-    EVT_MENU(ID_CustomizeToolbar, MainFrame::OnCustomizeToolbar)
-    EVT_MENU(ID_GridContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(ID_TreeContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(ID_TextContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(ID_SizeReportContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(ID_HTMLContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(ID_NotebookContent, MainFrame::OnChangeContentPane)
-    EVT_MENU(wxID_EXIT, MainFrame::OnExit)
-    EVT_MENU(wxID_ABOUT, MainFrame::OnAbout)
-    EVT_UPDATE_UI(ID_NotebookTabFixedWidth, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookNoCloseButton, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookCloseButton, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookCloseButtonAll, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookCloseButtonActive, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookAllowTabMove, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookAllowTabExternalMove, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookAllowTabSplit, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookScrollButtons, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NotebookWindowList, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_AllowFloating, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_TransparentHint, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_VenetianBlindsHint, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_RectangleHint, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NoHint, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_HintFade, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NoVenetianFade, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_TransparentDrag, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_LiveUpdate, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_NoGradient, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_VerticalGradient, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_HorizontalGradient, MainFrame::OnUpdateUI)
-    EVT_UPDATE_UI(ID_AllowToolbarResizing, MainFrame::OnUpdateUI)
-    EVT_MENU_RANGE(MainFrame::ID_FirstPerspective, MainFrame::ID_FirstPerspective+1000,
-                   MainFrame::OnRestorePerspective)
-    EVT_AUITOOLBAR_TOOL_DROPDOWN(ID_DropDownToolbarItem, MainFrame::OnDropDownToolbarItem)
-    EVT_AUI_PANE_CLOSE(MainFrame::OnPaneClose)
-    EVT_AUINOTEBOOK_ALLOW_DND(wxID_ANY, MainFrame::OnAllowNotebookDnD)
-    EVT_AUINOTEBOOK_PAGE_CLOSE(wxID_ANY, MainFrame::OnNotebookPageClose)
-    EVT_AUINOTEBOOK_PAGE_CLOSED(wxID_ANY, MainFrame::OnNotebookPageClosed)
+wxBEGIN_EVENT_TABLE(fmMainFrame, wxFrame)
+    EVT_ERASE_BACKGROUND(fmMainFrame::OnEraseBackground)
+    EVT_SIZE(fmMainFrame::OnSize)
+    EVT_MENU(fmMainFrame::ID_CreateTree, fmMainFrame::OnCreateTree)
+    EVT_MENU(fmMainFrame::ID_CreateGrid, fmMainFrame::OnCreateGrid)
+    EVT_MENU(fmMainFrame::ID_CreateText, fmMainFrame::OnCreateText)
+    EVT_MENU(fmMainFrame::ID_CreateHTML, fmMainFrame::OnCreateHTML)
+    EVT_MENU(fmMainFrame::ID_CreateSizeReport, fmMainFrame::OnCreateSizeReport)
+    EVT_MENU(fmMainFrame::ID_CreateNotebook, fmMainFrame::OnCreateNotebook)
+    EVT_MENU(fmMainFrame::ID_CreatePerspective, fmMainFrame::OnCreatePerspective)
+    EVT_MENU(fmMainFrame::ID_CopyPerspectiveCode, fmMainFrame::OnCopyPerspectiveCode)
+    EVT_MENU(ID_AllowFloating, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_TransparentHint, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_VenetianBlindsHint, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_RectangleHint, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_NoHint, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_HintFade, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_NoVenetianFade, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_TransparentDrag, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_LiveUpdate, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_AllowActivePane, fmMainFrame::OnManagerFlag)
+    EVT_MENU(ID_NotebookTabFixedWidth, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookNoCloseButton, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookCloseButton, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookCloseButtonAll, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookCloseButtonActive, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookAllowTabMove, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookAllowTabExternalMove, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookAllowTabSplit, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookScrollButtons, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookWindowList, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookArtGloss, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookArtSimple, fmMainFrame::OnNotebookFlag)
+    EVT_MENU(ID_NotebookAlignTop,     fmMainFrame::OnTabAlignment)
+    EVT_MENU(ID_NotebookAlignBottom,  fmMainFrame::OnTabAlignment)
+    EVT_MENU(ID_NoGradient, fmMainFrame::OnGradient)
+    EVT_MENU(ID_VerticalGradient, fmMainFrame::OnGradient)
+    EVT_MENU(ID_HorizontalGradient, fmMainFrame::OnGradient)
+    EVT_MENU(ID_AllowToolbarResizing, fmMainFrame::OnToolbarResizing)
+    EVT_MENU(ID_Settings, fmMainFrame::OnSettings)
+    EVT_MENU(ID_CustomizeToolbar, fmMainFrame::OnCustomizeToolbar)
+    EVT_MENU(ID_GridContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(ID_TreeContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(ID_TextContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(ID_SizeReportContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(ID_HTMLContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(ID_NotebookContent, fmMainFrame::OnChangeContentPane)
+    EVT_MENU(wxID_EXIT, fmMainFrame::OnExit)
+    EVT_MENU(wxID_ABOUT, fmMainFrame::OnAbout)
+    EVT_UPDATE_UI(ID_NotebookTabFixedWidth, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookNoCloseButton, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookCloseButton, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookCloseButtonAll, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookCloseButtonActive, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookAllowTabMove, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookAllowTabExternalMove, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookAllowTabSplit, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookScrollButtons, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NotebookWindowList, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_AllowFloating, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_TransparentHint, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_VenetianBlindsHint, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_RectangleHint, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NoHint, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_HintFade, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NoVenetianFade, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_TransparentDrag, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_LiveUpdate, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_NoGradient, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_VerticalGradient, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_HorizontalGradient, fmMainFrame::OnUpdateUI)
+    EVT_UPDATE_UI(ID_AllowToolbarResizing, fmMainFrame::OnUpdateUI)
+    EVT_MENU_RANGE(fmMainFrame::ID_FirstPerspective, fmMainFrame::ID_FirstPerspective+1000,
+                   fmMainFrame::OnRestorePerspective)
+    EVT_AUITOOLBAR_TOOL_DROPDOWN(ID_DropDownToolbarItem, fmMainFrame::OnDropDownToolbarItem)
+    EVT_AUI_PANE_CLOSE(fmMainFrame::OnPaneClose)
+    EVT_AUINOTEBOOK_ALLOW_DND(wxID_ANY, fmMainFrame::OnAllowNotebookDnD)
+    EVT_AUINOTEBOOK_PAGE_CLOSE(wxID_ANY, fmMainFrame::OnNotebookPageClose)
+    EVT_AUINOTEBOOK_PAGE_CLOSED(wxID_ANY, fmMainFrame::OnNotebookPageClosed)
 wxEND_EVENT_TABLE()
 
 
-MainFrame::MainFrame(wxWindow* parent,
+fmMainFrame::fmMainFrame(wxWindow* parent,
                  wxWindowID id,
                  const wxString& title,
                  const wxPoint& pos,
@@ -493,32 +489,32 @@ MainFrame::MainFrame(wxWindow* parent,
     m_mgr.Update();
 }
 
-MainFrame::~MainFrame()
+fmMainFrame::~fmMainFrame()
 {
     m_mgr.UnInit();
 }
 
-wxAuiDockArt* MainFrame::GetDockArt()
+wxAuiDockArt* fmMainFrame::GetDockArt()
 {
     return m_mgr.GetArtProvider();
 }
 
-void MainFrame::DoUpdate()
+void fmMainFrame::DoUpdate()
 {
     m_mgr.Update();
 }
 
-void MainFrame::OnEraseBackground(wxEraseEvent& event)
+void fmMainFrame::OnEraseBackground(wxEraseEvent& event)
 {
     event.Skip();
 }
 
-void MainFrame::OnSize(wxSizeEvent& event)
+void fmMainFrame::OnSize(wxSizeEvent& event)
 {
     event.Skip();
 }
 
-void MainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
+void fmMainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
 {
     // show the settings pane, and float it
     wxAuiPaneInfo& floating_pane = m_mgr.GetPane(wxT("settings")).Float().Show();
@@ -529,12 +525,12 @@ void MainFrame::OnSettings(wxCommandEvent& WXUNUSED(evt))
     m_mgr.Update();
 }
 
-void MainFrame::OnCustomizeToolbar(wxCommandEvent& WXUNUSED(evt))
+void fmMainFrame::OnCustomizeToolbar(wxCommandEvent& WXUNUSED(evt))
 {
     wxMessageBox(_("Customize Toolbar clicked"));
 }
 
-void MainFrame::OnGradient(wxCommandEvent& event)
+void fmMainFrame::OnGradient(wxCommandEvent& event)
 {
     int gradient = 0;
     
@@ -549,7 +545,7 @@ void MainFrame::OnGradient(wxCommandEvent& event)
     m_mgr.Update();
 }
 
-void MainFrame::OnToolbarResizing(wxCommandEvent& WXUNUSED(evt))
+void fmMainFrame::OnToolbarResizing(wxCommandEvent& WXUNUSED(evt))
 {
     wxAuiPaneInfoArray& all_panes = m_mgr.GetAllPanes();
     const size_t count = all_panes.GetCount();
@@ -565,7 +561,7 @@ void MainFrame::OnToolbarResizing(wxCommandEvent& WXUNUSED(evt))
     m_mgr.Update();
 }
 
-void MainFrame::OnManagerFlag(wxCommandEvent& event)
+void fmMainFrame::OnManagerFlag(wxCommandEvent& event)
 {
     unsigned int flag = 0;
     
@@ -615,7 +611,7 @@ void MainFrame::OnManagerFlag(wxCommandEvent& event)
 }
 
 
-void MainFrame::OnNotebookFlag(wxCommandEvent& event)
+void fmMainFrame::OnNotebookFlag(wxCommandEvent& event)
 {
     int id = event.GetId();
     
@@ -693,7 +689,7 @@ void MainFrame::OnNotebookFlag(wxCommandEvent& event)
 }
 
 
-void MainFrame::OnUpdateUI(wxUpdateUIEvent& event)
+void fmMainFrame::OnUpdateUI(wxUpdateUIEvent& event)
 {
     unsigned int flags = m_mgr.GetFlags();
     
@@ -793,7 +789,7 @@ void MainFrame::OnUpdateUI(wxUpdateUIEvent& event)
     }
 }
 
-void MainFrame::OnPaneClose(wxAuiManagerEvent& evt)
+void fmMainFrame::OnPaneClose(wxAuiManagerEvent& evt)
 {
     if (evt.pane->name == wxT("test10"))
     {
@@ -806,7 +802,7 @@ void MainFrame::OnPaneClose(wxAuiManagerEvent& evt)
     }
 }
 
-void MainFrame::OnCreatePerspective(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreatePerspective(wxCommandEvent& WXUNUSED(event))
 {
     wxTextEntryDialog dlg(this, wxT("Enter a name for the new perspective:"),
                           wxT("wxAUI Test"));
@@ -824,7 +820,7 @@ void MainFrame::OnCreatePerspective(wxCommandEvent& WXUNUSED(event))
     m_perspectives.Add(m_mgr.SavePerspective());
 }
 
-void MainFrame::OnCopyPerspectiveCode(wxCommandEvent& WXUNUSED(evt))
+void fmMainFrame::OnCopyPerspectiveCode(wxCommandEvent& WXUNUSED(evt))
 {
     wxString s = m_mgr.SavePerspective();
     
@@ -837,12 +833,12 @@ void MainFrame::OnCopyPerspectiveCode(wxCommandEvent& WXUNUSED(evt))
 #endif
 }
 
-void MainFrame::OnRestorePerspective(wxCommandEvent& evt)
+void fmMainFrame::OnRestorePerspective(wxCommandEvent& evt)
 {
     m_mgr.LoadPerspective(m_perspectives.Item(evt.GetId() - ID_FirstPerspective));
 }
 
-void MainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
+void fmMainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
 {
     wxAuiNotebook* ctrl = (wxAuiNotebook*)evt.GetEventObject();
     if (ctrl->GetPage(evt.GetSelection())->IsKindOf(CLASSINFO(wxHtmlWindow)))
@@ -856,7 +852,7 @@ void MainFrame::OnNotebookPageClose(wxAuiNotebookEvent& evt)
     }
 }
 
-void MainFrame::OnNotebookPageClosed(wxAuiNotebookEvent& evt)
+void fmMainFrame::OnNotebookPageClosed(wxAuiNotebookEvent& evt)
 {
     wxAuiNotebook* ctrl = (wxAuiNotebook*)evt.GetEventObject();
     wxUnusedVar(ctrl);
@@ -870,14 +866,14 @@ void MainFrame::OnNotebookPageClosed(wxAuiNotebookEvent& evt)
     evt.Skip();
 }
 
-void MainFrame::OnAllowNotebookDnD(wxAuiNotebookEvent& evt)
+void fmMainFrame::OnAllowNotebookDnD(wxAuiNotebookEvent& evt)
 {
     // for the purpose of this test application, explicitly
     // allow all noteboko drag and drop events
     evt.Allow();
 }
 
-wxPoint MainFrame::GetStartPosition()
+wxPoint fmMainFrame::GetStartPosition()
 {
     static int x = 0;
     x += 20;
@@ -885,7 +881,7 @@ wxPoint MainFrame::GetStartPosition()
     return wxPoint(pt.x + x, pt.y + x);
 }
 
-void MainFrame::OnCreateTree(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateTree(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateTreeCtrl(), wxAuiPaneInfo().
                   Caption(wxT("Tree Control")).
@@ -894,7 +890,7 @@ void MainFrame::OnCreateTree(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateGrid(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateGrid(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateGrid(), wxAuiPaneInfo().
                   Caption(wxT("Grid")).
@@ -903,7 +899,7 @@ void MainFrame::OnCreateGrid(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateHTML(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateHTML(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateHTMLCtrl(), wxAuiPaneInfo().
                   Caption(wxT("HTML Control")).
@@ -912,7 +908,7 @@ void MainFrame::OnCreateHTML(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateNotebook(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateNotebook(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateNotebook(), wxAuiPaneInfo().
                   Caption(wxT("Notebook")).
@@ -922,7 +918,7 @@ void MainFrame::OnCreateNotebook(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateText(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateText(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateTextCtrl(), wxAuiPaneInfo().
                   Caption(wxT("Text Control")).
@@ -930,7 +926,7 @@ void MainFrame::OnCreateText(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnCreateSizeReport(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnCreateSizeReport(wxCommandEvent& WXUNUSED(event))
 {
     m_mgr.AddPane(CreateSizeReportCtrl(), wxAuiPaneInfo().
                   Caption(wxT("Client Size Reporter")).
@@ -939,7 +935,7 @@ void MainFrame::OnCreateSizeReport(wxCommandEvent& WXUNUSED(event))
     m_mgr.Update();
 }
 
-void MainFrame::OnChangeContentPane(wxCommandEvent& evt)
+void fmMainFrame::OnChangeContentPane(wxCommandEvent& evt)
 {
     m_mgr.GetPane(wxT("grid_content")).Show(evt.GetId() == ID_GridContent);
     m_mgr.GetPane(wxT("text_content")).Show(evt.GetId() == ID_TextContent);
@@ -950,7 +946,7 @@ void MainFrame::OnChangeContentPane(wxCommandEvent& evt)
     m_mgr.Update();
 }
 
-void MainFrame::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
+void fmMainFrame::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
 {
     if (evt.IsDropDownClicked())
     {
@@ -994,7 +990,7 @@ void MainFrame::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
 }
 
 
-void MainFrame::OnTabAlignment(wxCommandEvent &evt)
+void fmMainFrame::OnTabAlignment(wxCommandEvent &evt)
 {
     size_t i, count;
     wxAuiPaneInfoArray& all_panes = m_mgr.GetAllPanes();
@@ -1018,17 +1014,17 @@ void MainFrame::OnTabAlignment(wxCommandEvent &evt)
     }
 }
 
-void MainFrame::OnExit(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnExit(wxCommandEvent& WXUNUSED(event))
 {
     Close(true);
 }
 
-void MainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
+void fmMainFrame::OnAbout(wxCommandEvent& WXUNUSED(event))
 {
     wxMessageBox(_("wxAUI Demo\nAn advanced window management library for wxWidgets\n(c) Copyright 2005-2006, Kirix Corporation"), _("About wxAUI Demo"), wxOK, this);
 }
 
-wxTextCtrl* MainFrame::CreateTextCtrl(const wxString& ctrl_text)
+wxTextCtrl* fmMainFrame::CreateTextCtrl(const wxString& ctrl_text)
 {
     static int n = 0;
     
@@ -1044,7 +1040,7 @@ wxTextCtrl* MainFrame::CreateTextCtrl(const wxString& ctrl_text)
 }
 
 
-wxGrid* MainFrame::CreateGrid()
+wxGrid* fmMainFrame::CreateGrid()
 {
     wxGrid* grid = new wxGrid(this, wxID_ANY,
                               wxPoint(0,0),
@@ -1054,7 +1050,7 @@ wxGrid* MainFrame::CreateGrid()
     return grid;
 }
 
-wxTreeCtrl* MainFrame::CreateTreeCtrl()
+wxTreeCtrl* fmMainFrame::CreateTreeCtrl()
 {
     wxTreeCtrl* tree = new wxTreeCtrl(this, wxID_ANY,
                                       wxPoint(0,0), wxSize(160,250),
@@ -1094,7 +1090,7 @@ wxTreeCtrl* MainFrame::CreateTreeCtrl()
     return tree;
 }
 
-wxSizeReportCtrl* MainFrame::CreateSizeReportCtrl(int width, int height)
+wxSizeReportCtrl* fmMainFrame::CreateSizeReportCtrl(int width, int height)
 {
     wxSizeReportCtrl* ctrl = new wxSizeReportCtrl(this, wxID_ANY,
                                                   wxDefaultPosition,
@@ -1102,7 +1098,7 @@ wxSizeReportCtrl* MainFrame::CreateSizeReportCtrl(int width, int height)
     return ctrl;
 }
 
-wxHtmlWindow* MainFrame::CreateHTMLCtrl(wxWindow* parent)
+wxHtmlWindow* fmMainFrame::CreateHTMLCtrl(wxWindow* parent)
 {
     if (!parent)
         parent = this;
@@ -1114,7 +1110,7 @@ wxHtmlWindow* MainFrame::CreateHTMLCtrl(wxWindow* parent)
     return ctrl;
 }
 
-wxAuiNotebook* MainFrame::CreateNotebook()
+wxAuiNotebook* fmMainFrame::CreateNotebook()
 {
     // create the notebook off-window to avoid flicker
     wxSize client_size = GetClientSize();
@@ -1177,7 +1173,7 @@ wxAuiNotebook* MainFrame::CreateNotebook()
     return ctrl;
 }
 
-wxString MainFrame::GetIntroText()
+wxString fmMainFrame::GetIntroText()
 {
     const char* text =
     "<html><body>"

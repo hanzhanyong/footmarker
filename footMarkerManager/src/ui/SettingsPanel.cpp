@@ -9,7 +9,6 @@
 
 #include <wx/colordlg.h>
 
-using namespace footmarker::ui;
 
 wxBEGIN_EVENT_TABLE(SettingsPanel, wxPanel)
     EVT_SPINCTRL(ID_PaneBorderSize, SettingsPanel::OnPaneBorderSize)
@@ -28,7 +27,7 @@ wxBEGIN_EVENT_TABLE(SettingsPanel, wxPanel)
 wxEND_EVENT_TABLE()
 
 
-SettingsPanel::SettingsPanel(wxWindow* parent, MainFrame* frame)
+SettingsPanel::SettingsPanel(wxWindow* parent, fmMainFrame* frame)
 : wxPanel(parent, wxID_ANY, wxDefaultPosition, wxDefaultSize),
 m_frame(frame)
 {

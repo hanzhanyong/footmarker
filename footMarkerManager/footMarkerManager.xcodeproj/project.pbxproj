@@ -7,14 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		44015F4721C1D7DA00E9A389 /* MainApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44015F4621C1D7DA00E9A389 /* MainApp.cpp */; };
+		44015F4721C1D7DA00E9A389 /* fmMainApp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44015F4621C1D7DA00E9A389 /* fmMainApp.cpp */; };
 		4405928921B8369C003D6A80 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4405928821B8369C003D6A80 /* CoreFoundation.framework */; };
 		4425FDE121D1B16800A06518 /* SettingsPanel.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4425FDDA21D1B16800A06518 /* SettingsPanel.cpp */; };
-		4425FDE221D1B16800A06518 /* MainFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4425FDDC21D1B16800A06518 /* MainFrame.cpp */; };
+		4425FDE221D1B16800A06518 /* fmMainFrame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4425FDDC21D1B16800A06518 /* fmMainFrame.cpp */; };
 		4425FDE321D1B16800A06518 /* fmToolBarTop.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4425FDDD21D1B16800A06518 /* fmToolBarTop.cpp */; };
 		4425FDE421D1B16800A06518 /* wxSizeReportCtrl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4425FDDF21D1B16800A06518 /* wxSizeReportCtrl.cpp */; };
 		4430759021C21EB500822502 /* libwx_osx_cocoa.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */; };
 		4430759221C21F9400822502 /* libwx_osx_cocoa.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = 4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		44A6BBED21D6730400327476 /* fmLocalesFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBEB21D6730400327476 /* fmLocalesFactory.cpp */; };
+		44A6BBFC21D6A06400327476 /* fmLocales_EN_US.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBF821D6A06400327476 /* fmLocales_EN_US.cpp */; };
+		44A6BBFD21D6A06400327476 /* fmLocales_ZH_CN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBF921D6A06400327476 /* fmLocales_ZH_CN.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,21 +36,26 @@
 /* Begin PBXFileReference section */
 		405B1ACB10EF253300676938 /* minimal_cocoa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = minimal_cocoa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		40735927137088070077DE1B /* Info_cocoa.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info_cocoa.plist; sourceTree = "<group>"; };
-		44015F4621C1D7DA00E9A389 /* MainApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainApp.cpp; sourceTree = "<group>"; };
+		44015F4621C1D7DA00E9A389 /* fmMainApp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = fmMainApp.cpp; path = src/fmMainApp.cpp; sourceTree = "<group>"; };
 		4405928821B8369C003D6A80 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		4425FDDA21D1B16800A06518 /* SettingsPanel.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SettingsPanel.cpp; sourceTree = "<group>"; };
 		4425FDDB21D1B16800A06518 /* fmToolBarTop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmToolBarTop.h; sourceTree = "<group>"; };
-		4425FDDC21D1B16800A06518 /* MainFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainFrame.cpp; sourceTree = "<group>"; };
+		4425FDDC21D1B16800A06518 /* fmMainFrame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmMainFrame.cpp; sourceTree = "<group>"; };
 		4425FDDD21D1B16800A06518 /* fmToolBarTop.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmToolBarTop.cpp; sourceTree = "<group>"; };
 		4425FDDE21D1B16800A06518 /* wxSizeReportCtrl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = wxSizeReportCtrl.h; sourceTree = "<group>"; };
 		4425FDDF21D1B16800A06518 /* wxSizeReportCtrl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = wxSizeReportCtrl.cpp; sourceTree = "<group>"; };
 		4425FDE021D1B16800A06518 /* SettingsPanel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsPanel.h; sourceTree = "<group>"; };
 		4430758F21C21EB500822502 /* libwx_osx_cocoa.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libwx_osx_cocoa.dylib; path = ../3rdparty/wxWidgets/lib/libwx_osx_cocoa.dylib; sourceTree = "<group>"; };
 		444CCDF621B88DE500E58CE9 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = dynamic/Images.xcassets; sourceTree = "<group>"; };
-		446763E421C69C0200DA15A0 /* MainFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainFrame.h; sourceTree = "<group>"; };
-		449461E721D082B0009DC4C3 /* ZH_CN.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZH_CN.h; sourceTree = "<group>"; };
-		449461E821D08940009DC4C3 /* EN_US.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EN_US.h; sourceTree = "<group>"; };
-		449461EA21D08C8B009DC4C3 /* RES.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RES.h; sourceTree = "<group>"; };
+		44A6BBE921D66B6500327476 /* fmLocales.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmLocales.h; sourceTree = "<group>"; };
+		44A6BBEB21D6730400327476 /* fmLocalesFactory.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fmLocalesFactory.cpp; sourceTree = "<group>"; };
+		44A6BBEC21D6730400327476 /* fmLocalesFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmLocalesFactory.h; sourceTree = "<group>"; };
+		44A6BBF521D69F1F00327476 /* res.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = res.h; sourceTree = "<group>"; };
+		44A6BBF621D69F1F00327476 /* fmMainFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmMainFrame.h; sourceTree = "<group>"; };
+		44A6BBF821D6A06400327476 /* fmLocales_EN_US.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmLocales_EN_US.cpp; sourceTree = "<group>"; };
+		44A6BBF921D6A06400327476 /* fmLocales_ZH_CN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmLocales_ZH_CN.cpp; sourceTree = "<group>"; };
+		44A6BBFA21D6A06400327476 /* fmLocales_ZH_CN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmLocales_ZH_CN.h; sourceTree = "<group>"; };
+		44A6BBFB21D6A06400327476 /* fmLocales_EN_US.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmLocales_EN_US.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* footMarkerManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footMarkerManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -83,8 +91,6 @@
 		29B97314FDCFA39411CA2CEA /* minimal_cocoa */ = {
 			isa = PBXGroup;
 			children = (
-				444D007B21CC87A000DF4D87 /* res */,
-				446763DB21C6980400DA15A0 /* include */,
 				444CCDF621B88DE500E58CE9 /* Images.xcassets */,
 				40735927137088070077DE1B /* Info_cocoa.plist */,
 				405B1A9710EF227D00676938 /* src */,
@@ -101,7 +107,7 @@
 				446763E221C69A7800DA15A0 /* db */,
 				446763E121C69A7100DA15A0 /* common */,
 				446763E021C69A6900DA15A0 /* ui */,
-				44015F4621C1D7DA00E9A389 /* MainApp.cpp */,
+				44015F4621C1D7DA00E9A389 /* fmMainApp.cpp */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -115,58 +121,22 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		444D007B21CC87A000DF4D87 /* res */ = {
-			isa = PBXGroup;
-			children = (
-				449461E721D082B0009DC4C3 /* ZH_CN.h */,
-				449461E821D08940009DC4C3 /* EN_US.h */,
-				449461EA21D08C8B009DC4C3 /* RES.h */,
-			);
-			path = res;
-			sourceTree = "<group>";
-		};
-		446763DB21C6980400DA15A0 /* include */ = {
-			isa = PBXGroup;
-			children = (
-				446763DF21C69A3E00DA15A0 /* common */,
-				446763DE21C69A3300DA15A0 /* db */,
-				446763DD21C6992400DA15A0 /* ui */,
-			);
-			path = include;
-			sourceTree = "<group>";
-		};
-		446763DD21C6992400DA15A0 /* ui */ = {
-			isa = PBXGroup;
-			children = (
-				446763E421C69C0200DA15A0 /* MainFrame.h */,
-			);
-			path = ui;
-			sourceTree = "<group>";
-		};
-		446763DE21C69A3300DA15A0 /* db */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = db;
-			sourceTree = "<group>";
-		};
-		446763DF21C69A3E00DA15A0 /* common */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = common;
-			sourceTree = "<group>";
-		};
 		446763E021C69A6900DA15A0 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				44A6BBF721D6A03B00327476 /* locales */,
+				44A6BBF621D69F1F00327476 /* fmMainFrame.h */,
+				44A6BBF521D69F1F00327476 /* res.h */,
 				4425FDDD21D1B16800A06518 /* fmToolBarTop.cpp */,
 				4425FDDB21D1B16800A06518 /* fmToolBarTop.h */,
-				4425FDDC21D1B16800A06518 /* MainFrame.cpp */,
+				4425FDDC21D1B16800A06518 /* fmMainFrame.cpp */,
 				4425FDDA21D1B16800A06518 /* SettingsPanel.cpp */,
 				4425FDE021D1B16800A06518 /* SettingsPanel.h */,
 				4425FDDF21D1B16800A06518 /* wxSizeReportCtrl.cpp */,
 				4425FDDE21D1B16800A06518 /* wxSizeReportCtrl.h */,
+				44A6BBE921D66B6500327476 /* fmLocales.h */,
+				44A6BBEB21D6730400327476 /* fmLocalesFactory.cpp */,
+				44A6BBEC21D6730400327476 /* fmLocalesFactory.h */,
 			);
 			name = ui;
 			path = src/ui;
@@ -194,6 +164,17 @@
 			);
 			name = plugin;
 			path = src/plugin;
+			sourceTree = "<group>";
+		};
+		44A6BBF721D6A03B00327476 /* locales */ = {
+			isa = PBXGroup;
+			children = (
+				44A6BBF821D6A06400327476 /* fmLocales_EN_US.cpp */,
+				44A6BBFB21D6A06400327476 /* fmLocales_EN_US.h */,
+				44A6BBF921D6A06400327476 /* fmLocales_ZH_CN.cpp */,
+				44A6BBFA21D6A06400327476 /* fmLocales_ZH_CN.h */,
+			);
+			path = locales;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,11 +254,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4425FDE221D1B16800A06518 /* MainFrame.cpp in Sources */,
+				4425FDE221D1B16800A06518 /* fmMainFrame.cpp in Sources */,
 				4425FDE421D1B16800A06518 /* wxSizeReportCtrl.cpp in Sources */,
-				44015F4721C1D7DA00E9A389 /* MainApp.cpp in Sources */,
+				44015F4721C1D7DA00E9A389 /* fmMainApp.cpp in Sources */,
+				44A6BBFD21D6A06400327476 /* fmLocales_ZH_CN.cpp in Sources */,
+				44A6BBED21D6730400327476 /* fmLocalesFactory.cpp in Sources */,
 				4425FDE321D1B16800A06518 /* fmToolBarTop.cpp in Sources */,
 				4425FDE121D1B16800A06518 /* SettingsPanel.cpp in Sources */,
+				44A6BBFC21D6A06400327476 /* fmLocales_EN_US.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

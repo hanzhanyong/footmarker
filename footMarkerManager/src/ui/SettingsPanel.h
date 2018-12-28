@@ -30,13 +30,11 @@
 //#include "wx/textdlg.h"
 
 #include "wx/aui/aui.h"
-#include <ui/MainFrame.h>
+#include "fmMainFrame.h"
 
 
 
-namespace footmarker {
-    namespace ui {
-        class MainFrame;
+class fmMainFrame;
         class SettingsPanel : public wxPanel
         {
             enum
@@ -58,7 +56,7 @@ namespace footmarker {
             
         public:
             
-            SettingsPanel(wxWindow* parent, MainFrame* frame);
+            SettingsPanel(wxWindow* parent, fmMainFrame* frame);
             
         private:
             
@@ -76,7 +74,7 @@ namespace footmarker {
             
         private:
             
-            MainFrame* m_frame;
+            fmMainFrame* m_frame;
             wxSpinCtrl* m_border_size;
             wxSpinCtrl* m_sash_size;
             wxSpinCtrl* m_caption_size;
@@ -93,8 +91,7 @@ namespace footmarker {
             
             wxDECLARE_EVENT_TABLE();
         };
-    }
-}
+
 
 
 #endif /* SettingsPanel_h */

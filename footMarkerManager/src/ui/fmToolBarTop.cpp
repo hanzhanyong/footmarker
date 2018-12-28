@@ -6,7 +6,9 @@
 //
 
 #include "fmToolBarTop.h"
-#include "RES.h"
+#include "res.h"
+#include "fmLocales.h"
+#include "fmLocalesFactory.h"
 
 #include <wx/artprov.h>
 #include <wx/menu.h>
@@ -14,6 +16,10 @@
 wxBEGIN_EVENT_TABLE(fmToolBarTop, wxAuiToolBar)
 EVT_AUITOOLBAR_TOOL_DROPDOWN(FM_ID_TOOLBAR_NEW_CONNECTION, fmToolBarTop::OnDropDownToolbarItem)
 EVT_AUITOOLBAR_TOOL_DROPDOWN(FM_ID_TOOLBAR_LANGUAGE, fmToolBarTop::OnDropDownToolbarItem)
+
+EVT_MENU(FM_ID_TOOLBAR_LANGUAGE_ZH_CN, fmToolBarTop::OnMenuItem)
+EVT_MENU(FM_ID_TOOLBAR_LANGUAGE_EN_US, fmToolBarTop::OnMenuItem)
+
 wxEND_EVENT_TABLE()
 
 
@@ -23,6 +29,7 @@ fmToolBarTop::fmToolBarTop(
              const wxPoint& pos,
              const wxSize& size,
              long style) :
+m_LocalLanguage(NULL),
 wxAuiToolBar(parent, id, pos, size, style)
 {
     this->InitItems();
@@ -31,6 +38,9 @@ wxAuiToolBar(parent, id, pos, size, style)
 fmToolBarTop::~fmToolBarTop()
 {
 //    wxAuiToolBar::~wxAuiToolBar();
+    if (m_LocalLanguage)
+        fmLocalesFactory::release(m_LocalLanguage);
+    m_LocalLanguage = NULL;
 }
 
 void fmToolBarTop::InitItems()
@@ -39,35 +49,38 @@ void fmToolBarTop::InitItems()
     wxBitmap bitmap = wxArtProvider::GetBitmap(wxART_NORMAL_FILE, wxART_OTHER, bitmapSize);
     this->SetToolBitmapSize(bitmapSize);
     
-    this->AddTool(FM_ID_TOOLBAR_NEW_CONNECTION, FM_IDS_TOOLBAR_NEW_CONNECTION, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_NEW_CONNECTION, "", bitmap);
     this->AddSeparator();
     
 
-    this->AddTool(FM_ID_TOOLBAR_NEW_FIND, FM_IDS_TOOLBAR_NEW_FIND, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_NEW_FIND, "", bitmap);
 //    this->AddTool(FM_ID_TOOLBAR_TABLE, FM_IDS_TOOLBAR_TABLE, bitmap);
-    this->AddTool(FM_ID_TOOLBAR_KEYS, FM_IDS_TOOLBAR_KEYS, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_KEYS, "", bitmap);
     this->AddSeparator();
 
-    this->AddTool(FM_ID_TOOLBAR_USERS, FM_IDS_TOOLBAR_USERS, bitmap);
-    this->AddTool(FM_ID_TOOLBAR_MODELS, FM_IDS_TOOLBAR_MODELS, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_USERS, "", bitmap);
+    this->AddTool(FM_ID_TOOLBAR_MODELS, "", bitmap);
     this->AddSeparator();
     
-    this->AddTool(FM_ID_TOOLBAR_BACKUP, FM_IDS_TOOLBAR_BACKUP, bitmap);
-    this->AddTool(FM_ID_TOOLBAR_ABOUT, FM_IDS_TOOLBAR_ABOUT, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_BACKUP, "", bitmap);
+    this->AddTool(FM_ID_TOOLBAR_ABOUT, "", bitmap);
     
     this->AddStretchSpacer();
     
-    this->AddTool(FM_ID_TOOLBAR_LANGUAGE, FM_IDS_TOOLBAR_LANGUAGE, bitmap);
+    this->AddTool(FM_ID_TOOLBAR_LANGUAGE, "", bitmap);
     
     // DropDown
     this->SetToolDropDown(FM_ID_TOOLBAR_NEW_CONNECTION, true);
     this->SetToolDropDown(FM_ID_TOOLBAR_LANGUAGE, true);
+    
+    wxCommandEvent evt(wxEVT_NULL, FM_ID_TOOLBAR_LANGUAGE_EN_US);
+    this->OnMenuItem(evt);
 }
 
 
 void fmToolBarTop::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
 {
-    if (evt.IsDropDownClicked())
+    if (evt.IsDropDownClicked() && m_LocalLanguage)
     {
         wxAuiToolBar* tb = static_cast<wxAuiToolBar*>(evt.GetEventObject());
 
@@ -79,35 +92,35 @@ void fmToolBarTop::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
         wxMenuItem* menuItem = NULL;
         switch (evt.GetId()) {
             case FM_ID_TOOLBAR_NEW_CONNECTION:
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_REDIS, FM_IDS_TOOLBAR_NEW_CONNECTION_REDIS);
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_REDIS, m_LocalLanguage->getString(FM_ID_TOOLBAR_NEW_CONNECTION_REDIS));
                 menuItem->SetBitmap(bmp);
                 menuPopup.Append(menuItem);
                 
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_LEVELDB, FM_IDS_TOOLBAR_NEW_CONNECTION_LEVELDB);
-                menuItem->SetBitmap(bmp);
-                menuPopup.Append(menuItem);
-                menuItem->Enable(false);
-                
-                menuPopup.AppendSeparator();
-                
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_MONGO, FM_IDS_TOOLBAR_NEW_CONNECTION_MONGO);
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_LEVELDB, m_LocalLanguage->getString(FM_ID_TOOLBAR_NEW_CONNECTION_LEVELDB));
                 menuItem->SetBitmap(bmp);
                 menuPopup.Append(menuItem);
                 menuItem->Enable(false);
                 
                 menuPopup.AppendSeparator();
                 
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_MYSQL, FM_IDS_TOOLBAR_NEW_CONNECTION_MYSQL);
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_MONGO, m_LocalLanguage->getString(FM_ID_TOOLBAR_NEW_CONNECTION_MONGO));
+                menuItem->SetBitmap(bmp);
+                menuPopup.Append(menuItem);
+                menuItem->Enable(false);
+                
+                menuPopup.AppendSeparator();
+                
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_NEW_CONNECTION_MYSQL, m_LocalLanguage->getString(FM_ID_TOOLBAR_NEW_CONNECTION_MYSQL));
                 menuItem->SetBitmap(bmp);
                 menuPopup.Append(menuItem);
                 menuItem->Enable(false);
                 break;
             case FM_ID_TOOLBAR_LANGUAGE:
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_LANGUAGE_ZH_CN, FM_IDS_TOOLBAR_LANGUAGE_ZH_CN);
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_LANGUAGE_ZH_CN, m_LocalLanguage->getString(FM_ID_TOOLBAR_LANGUAGE_ZH_CN));
                 menuItem->SetBitmap(bmp);
                 menuPopup.Append(menuItem);
                 
-                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_LANGUAGE_EN_US, FM_IDS_TOOLBAR_LANGUAGE_EN_US);
+                menuItem =  new wxMenuItem(&menuPopup, FM_ID_TOOLBAR_LANGUAGE_EN_US, m_LocalLanguage->getString(FM_ID_TOOLBAR_LANGUAGE_EN_US));
                 menuItem->SetBitmap(bmp);
                 menuPopup.Append(menuItem);
                 break;
@@ -130,6 +143,51 @@ void fmToolBarTop::OnDropDownToolbarItem(wxAuiToolBarEvent& evt)
         // make sure the button is "un-stuck"
         tb->SetToolSticky(evt.GetId(), false);
     }
+}
+
+void fmToolBarTop::OnMenuItem(wxCommandEvent& evt)
+{
+    switch(evt.GetId())
+    {
+        case FM_ID_TOOLBAR_LANGUAGE_ZH_CN:
+            if (m_LocalLanguage == NULL)
+                m_LocalLanguage = fmLocalesFactory::create(FM_LOCALES_ZH_CH);
+            else if (m_LocalLanguage->getType() != FM_LOCALES_ZH_CH) {
+                fmLocalesFactory::release(m_LocalLanguage);
+                m_LocalLanguage = fmLocalesFactory::create(FM_LOCALES_ZH_CH);
+            }
+            else
+                return;
+            break;
+        case FM_ID_TOOLBAR_LANGUAGE_EN_US:
+            if (m_LocalLanguage == NULL)
+                m_LocalLanguage = fmLocalesFactory::create(FM_LOCALES_EN_US);
+            else if (m_LocalLanguage->getType() != FM_LOCALES_EN_US) {
+                fmLocalesFactory::release(m_LocalLanguage);
+                m_LocalLanguage = fmLocalesFactory::create(FM_LOCALES_EN_US);
+            }
+            else
+                return;
+            break;
+        default:
+            break;
+    }
+    if (m_LocalLanguage == NULL)
+        return;
+    
+//    bool isAuto = this->GetAutoLayout();
+//    if (isAuto) {
+//        isAuto = true;
+//    }
+    
+    const int toolCount = this->GetToolCount();
+    for (int i=0;i<toolCount;i++) {
+        wxAuiToolBarItem *toolItem = this->FindToolByIndex(i);
+        toolItem->SetLabel(m_LocalLanguage->getString(toolItem->GetId()));
+//        this->SetToolLabel(toolItem->GetId(), m_LocalLanguage->getString(toolItem->GetId()));
+        
+    }
+    this->Realize();
     
 }
 
