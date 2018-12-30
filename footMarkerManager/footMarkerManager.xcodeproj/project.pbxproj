@@ -18,6 +18,7 @@
 		44A6BBED21D6730400327476 /* fmLocalesFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBEB21D6730400327476 /* fmLocalesFactory.cpp */; };
 		44A6BBFC21D6A06400327476 /* fmLocales_EN_US.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBF821D6A06400327476 /* fmLocales_EN_US.cpp */; };
 		44A6BBFD21D6A06400327476 /* fmLocales_ZH_CN.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44A6BBF921D6A06400327476 /* fmLocales_ZH_CN.cpp */; };
+		44AFE08B21D862AC00C1513A /* fmMenuBar.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 44AFE08921D862AC00C1513A /* fmMenuBar.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -56,6 +57,8 @@
 		44A6BBF921D6A06400327476 /* fmLocales_ZH_CN.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = fmLocales_ZH_CN.cpp; sourceTree = "<group>"; };
 		44A6BBFA21D6A06400327476 /* fmLocales_ZH_CN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmLocales_ZH_CN.h; sourceTree = "<group>"; };
 		44A6BBFB21D6A06400327476 /* fmLocales_EN_US.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fmLocales_EN_US.h; sourceTree = "<group>"; };
+		44AFE08921D862AC00C1513A /* fmMenuBar.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = fmMenuBar.cpp; sourceTree = "<group>"; };
+		44AFE08A21D862AC00C1513A /* fmMenuBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = fmMenuBar.h; sourceTree = "<group>"; };
 		8D1107320486CEB800E47090 /* footMarkerManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = footMarkerManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -137,6 +140,8 @@
 				44A6BBE921D66B6500327476 /* fmLocales.h */,
 				44A6BBEB21D6730400327476 /* fmLocalesFactory.cpp */,
 				44A6BBEC21D6730400327476 /* fmLocalesFactory.h */,
+				44AFE08921D862AC00C1513A /* fmMenuBar.cpp */,
+				44AFE08A21D862AC00C1513A /* fmMenuBar.h */,
 			);
 			name = ui;
 			path = src/ui;
@@ -258,6 +263,7 @@
 				4425FDE421D1B16800A06518 /* wxSizeReportCtrl.cpp in Sources */,
 				44015F4721C1D7DA00E9A389 /* fmMainApp.cpp in Sources */,
 				44A6BBFD21D6A06400327476 /* fmLocales_ZH_CN.cpp in Sources */,
+				44AFE08B21D862AC00C1513A /* fmMenuBar.cpp in Sources */,
 				44A6BBED21D6730400327476 /* fmLocalesFactory.cpp in Sources */,
 				4425FDE321D1B16800A06518 /* fmToolBarTop.cpp in Sources */,
 				4425FDE121D1B16800A06518 /* SettingsPanel.cpp in Sources */,

@@ -222,7 +222,7 @@ fmMainFrame::fmMainFrame(wxWindow* parent,
     // min size for the frame itself isn't completely done.
     // see the end up wxAuiManager::Update() for the test
     // code. For now, just hard code a frame minimum size
-    SetMinSize(wxSize(400,300));
+    SetMinSize(wxSize(600,400));
     
     
     

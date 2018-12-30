@@ -72,8 +72,8 @@ void fmToolBarTop::InitItems()
     // DropDown
     this->SetToolDropDown(FM_ID_TOOLBAR_NEW_CONNECTION, true);
     this->SetToolDropDown(FM_ID_TOOLBAR_LANGUAGE, true);
-    
-    wxCommandEvent evt(wxEVT_NULL, FM_ID_TOOLBAR_LANGUAGE_EN_US);
+        
+    wxCommandEvent evt(wxEVT_NULL, FM_ID_TOOLBAR_LANGUAGE_ZH_CN);
     this->OnMenuItem(evt);
 }
 

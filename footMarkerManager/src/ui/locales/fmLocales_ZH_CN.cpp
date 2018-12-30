@@ -61,6 +61,10 @@ const wxString &fmLocales_ZH_CN::getString(int id)
         case FM_ID_TOOLBAR_ABOUT:
             m_String = "关于";
             break;
+        case FM_ID_MENU_HELP_ONLINE:
+            m_String = "在线帮助";
+        case FM_ID_MENU_HELP_README:
+            m_String = "Readme";
         case FM_ID_TOOLBAR_LANGUAGE:
             m_String = "语言";
             break;

@@ -40,26 +40,50 @@
 #define FM_ID_MENU_HELP                                19000
 
 /************************************ MENU *********************************************/
-#define FM_ID_MENU_FILE_NEW_CONNECTION                 11100
-#define FM_ID_MENU_FILE_NEW_CONNECTION_REDIS           11101
-#define FM_ID_MENU_FILE_NEW_CONNECTION_LEVELDB         11102
-#define FM_ID_MENU_FILE_NEW_CONNECTION_MONGO           11103
-#define FM_ID_MENU_FILE_NEW_CONNECTION_MYSQL           11105
+#define FM_ID_MENU_FILE_NEW_GROUP                      11100
+#define FM_ID_MENU_FILE_NEW_CONNECTION                 11200
+#define FM_ID_MENU_FILE_NEW_CONNECTION_REDIS           11201
+#define FM_ID_MENU_FILE_NEW_CONNECTION_LEVELDB         11202
+#define FM_ID_MENU_FILE_NEW_CONNECTION_MONGO           11203
+#define FM_ID_MENU_FILE_NEW_CONNECTION_MYSQL           11205
+#define FM_ID_MENU_FILE_NEW_FIND                       11300
+#define FM_ID_MENU_FILE_OPEN_RECENT                    11400
+#define FM_ID_MENU_FILE_IMPORT_CONNECTION              11510
+#define FM_ID_MENU_FILE_EXPORT_CONNECTION              11520
+#define FM_ID_MENU_FILE_CLOSE                          11910
+#define FM_ID_MENU_FILE_CLOSE_WIDOWN                   11920
 
-#define FM_ID_MENU_FILE_NEW_FIND                       11200
+#define FM_ID_MENU_EDIT_UNDO                           12101
+#define FM_ID_MENU_EDIT_REDO                           12102
+#define FM_ID_MENU_EDIT_COPY                           12103
+#define FM_ID_MENU_EDIT_CUT                            12104
+#define FM_ID_MENU_EDIT_PASTE                          12105
+#define FM_ID_MENU_EDIT_DELETE                         12106
+#define FM_ID_MENU_EDIT_SELECTALL                      12107
+#define FM_ID_MENU_EDIT_FIND                           12108
+#define FM_ID_MENU_EDIT_REPLACE                        12109
 
-#define FM_ID_MENU_FILE_OPEN_RECENT                    11300
-#define FM_ID_MENU_FILE_IMPORT_CONNECTION              11400
-#define FM_ID_MENU_FILE_EXPORT_CONNECTION              11500
-#define FM_ID_MENU_FILE_EXIT                           11900
+#define FM_ID_MENU_VIEW_NAV_LEFT_TREE                  13101
+#define FM_ID_MENU_VIEW_NAV_RIGHT_INFO                 13102
+#define FM_ID_MENU_VIEW_TOOLBAR_MAIN                   13201
+#define FM_ID_MENU_VIEW_TOOLBAR_STATUS                 13202
+#define FM_ID_MENU_VIEW_FULLSCREEN                     13500
 
-#define FM_ID_MENU_TOOLS_TABLE                         12100
-#define FM_ID_MENU_TOOLS_KEYS                          12102
-#define FM_ID_MENU_TOOLS_USERS                         12105
-#define FM_ID_MENU_TOOLS_BACKUP                        12108
-#define FM_ID_MENU_TOOLS_MODELS                        12190
+//#define FM_ID_MENU_WINDOW_MINIMIZE                     14100
+//#define FM_ID_MENU_WINDOW_ZOOM                         14101
+
+#define FM_ID_MENU_TOOLS_DATA_IMPORT                   15001
+#define FM_ID_MENU_TOOLS_DATA_EXPORT                   15002
+#define FM_ID_MENU_TOOLS_TABLE                         15100
+#define FM_ID_MENU_TOOLS_TABLE                         15100
+#define FM_ID_MENU_TOOLS_KEYS                          15102
+#define FM_ID_MENU_TOOLS_USERS                         15105
+#define FM_ID_MENU_TOOLS_BACKUP                        15108
+#define FM_ID_MENU_TOOLS_MODELS                        15190
 
 #define FM_ID_MENU_HELP_ABOUT                          19001
+#define FM_ID_MENU_HELP_ONLINE                         19101
+#define FM_ID_MENU_HELP_README                         19102
 #define FM_ID_MENU_HELP_LANGUAGE                       19900
 #define FM_ID_MENU_HELP_LANGUAGE_ZH_CN                 19901
 #define FM_ID_MENU_HELP_LANGUAGE_EN_US                 19902
