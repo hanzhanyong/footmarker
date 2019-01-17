@@ -20,8 +20,60 @@ fmLocales_ZH_CN::fmLocales_ZH_CN(fmLocalesType type):fmLocales(type)
 const wxString &fmLocales_ZH_CN::getString(int id)
 {
     switch (id) {
-        case FM_ID_TOOLBAR_NEW_CONNECTION:
+            // 主菜单
+        case FM_ID_MENU_FILE:
+            m_String = "文件";
+            break;
+        case FM_ID_MENU_EDIT:
+            m_String = "编辑";
+            break;
+        case FM_ID_MENU_VIEW:
+            m_String = "视图";
+            break;
+        case FM_ID_MENU_FIND:
+            m_String = "查找";
+            break;
+        case FM_ID_MENU_WINDOW:
+            m_String = "窗口";
+            break;
+        case FM_ID_MENU_TOOLS:
+            m_String = "工具";
+            break;
+        case FM_ID_MENU_HELP:
+            m_String = "帮助";
+            break;
+            
+            
+        case FM_ID_MENU_FILE_NEW_GROUP:
+            m_String = "新建组";
+            break;
         case FM_ID_MENU_FILE_NEW_CONNECTION:
+            m_String = "新建连接";
+            break;
+
+        case FM_ID_MENU_FILE_NEW_FIND:
+            m_String = "新建查询";
+            break;
+        case FM_ID_MENU_FILE_OPEN_RECENT:
+            m_String = "最近文件...";
+            break;
+        case FM_ID_MENU_FILE_IMPORT_CONNECTION:
+            m_String = "导入连接";
+            break;
+        case FM_ID_MENU_FILE_EXPORT_CONNECTION:
+            m_String = "导出连接";
+            break;
+        case FM_ID_MENU_FILE_CLOSE:
+            m_String = "关闭";
+            break;
+        case FM_ID_MENU_FILE_CLOSE_WIDOWN:
+            m_String = "关闭窗口";
+            break;
+            
+            
+            
+            // 工具栏
+        case FM_ID_TOOLBAR_NEW_CONNECTION:
             m_String = "连接";
             break;
         case FM_ID_TOOLBAR_NEW_CONNECTION_REDIS:
