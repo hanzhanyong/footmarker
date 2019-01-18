@@ -70,6 +70,58 @@ const wxString &fmLocales_ZH_CN::getString(int id)
             m_String = "关闭窗口";
             break;
             
+        case FM_ID_MENU_EDIT_UNDO:
+            m_String = "恢复";
+            break;
+        case FM_ID_MENU_EDIT_REDO:
+            m_String = "重做";
+            break;
+        case FM_ID_MENU_EDIT_COPY:
+            m_String = "复制";
+            break;
+        case FM_ID_MENU_EDIT_CUT:
+            m_String = "剪贴";
+            break;
+        case FM_ID_MENU_EDIT_PASTE:
+            m_String = "粘贴";
+            break;
+        case FM_ID_MENU_EDIT_DELETE:
+            m_String = "删除";
+            break;
+        case FM_ID_MENU_EDIT_SELECTALL:
+            m_String = "全选";
+            break;
+        case FM_ID_MENU_EDIT_FIND:
+            m_String = "查找";
+            break;
+        case FM_ID_MENU_EDIT_REPLACE:
+            m_String = "替换";
+            break;
+            
+//#define FM_ID_MENU_VIEW_NAV_LEFT_TREE                  13101
+//#define FM_ID_MENU_VIEW_NAV_RIGHT_INFO                 13102
+//#define FM_ID_MENU_VIEW_TOOLBAR_MAIN                   13201
+//#define FM_ID_MENU_VIEW_TOOLBAR_STATUS                 13202
+//#define FM_ID_MENU_VIEW_FULLSCREEN                     13500
+//            
+//            //#define FM_ID_MENU_WINDOW_MINIMIZE                     14100
+//            //#define FM_ID_MENU_WINDOW_ZOOM                         14101
+//            
+//#define FM_ID_MENU_TOOLS_DATA_IMPORT                   15001
+//#define FM_ID_MENU_TOOLS_DATA_EXPORT                   15002
+//#define FM_ID_MENU_TOOLS_TABLE                         15100
+//#define FM_ID_MENU_TOOLS_TABLE                         15100
+//#define FM_ID_MENU_TOOLS_KEYS                          15102
+//#define FM_ID_MENU_TOOLS_USERS                         15105
+//#define FM_ID_MENU_TOOLS_BACKUP                        15108
+//#define FM_ID_MENU_TOOLS_MODELS                        15190
+//            
+//#define FM_ID_MENU_HELP_ABOUT                          19001
+//#define FM_ID_MENU_HELP_ONLINE                         19101
+//#define FM_ID_MENU_HELP_README                         19102
+//#define FM_ID_MENU_HELP_LANGUAGE                       19900
+//#define FM_ID_MENU_HELP_LANGUAGE_ZH_CN                 19901
+//#define FM_ID_MENU_HELP_LANGUAGE_EN_US                 19902
             
             
             // 工具栏
